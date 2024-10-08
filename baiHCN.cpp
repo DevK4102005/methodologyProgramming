@@ -5,7 +5,6 @@ c) Hay in ra HCN co dien tich lon nhat
 d) Hay sap xep danh sach HCN giam dan theo dien tich*/
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 typedef struct
 {
     int x, y;
@@ -52,7 +51,7 @@ void NhapHCN(HCN *hcn)
         scanf("%d%d", &hcn->TraiTren.x, &hcn->TraiTren.y);
         printf("Nhap diem phai duoi(x,y):");
         scanf("%d%d", &hcn->PhaiDuoi.x, &hcn->PhaiDuoi.y);
-    } while (!(hcn->TraiTren.x > hcn->PhaiDuoi.x && hcn->TraiTren.y < hcn->PhaiDuoi.y));
+    } while (!(hcn->TraiTren.x < hcn->PhaiDuoi.x && hcn->TraiTren.y > hcn->PhaiDuoi.y));
 }
 void InHCN(HCN hcn)
 {
@@ -79,7 +78,7 @@ void InDSHCN(HCN *hcn, int n)
 }
 int DienTichHCN(HCN hcn)
 {
-    return (hcn.TraiTren.x - hcn.PhaiDuoi.x) * (hcn.PhaiDuoi.y - hcn.TraiTren.y);
+    return (hcn.TraiTren.y - hcn.PhaiDuoi.y) * (hcn.PhaiDuoi.x - hcn.TraiTren.x);
 }
 void DienTichHCNMax(HCN *hcn, int n)
 {
